@@ -1,0 +1,41 @@
+{
+  "name": "@reinventt/pubsub-web",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "repository": "git@github.com:reinventt-libs/pubsub-web.git",
+  "author": "Nischith BM <nischithbm@gmail.com>",
+  "scripts": {
+    "clean": "rm -r dist/",
+    "build": "yarn build:core",
+    "build:core": "yarn build:prod",
+    "build:core:dev": "yarn build:dev",
+    "build:prod": "yarn clean; yarn webpack:prod && yarn build:types && yarn bundlesize",
+    "build:dev": "yarn clean; yarn webpack:dev && yarn build:types",
+    "build:analyze:prod": "WEBPACK_PROFILE=analyze yarn webpack:prod",
+    "build:analyze:dev": "WEBPACK_PROFILE=analyze yarn webpack:dev",
+    "webpack:prod": "NODE_ENV=production webpack --config .webpack/webpack.config.js",
+    "webpack:dev": "NODE_ENV=development webpack --config .webpack/webpack.config.js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "analyse:bundlesize": "yarn webpack:prod && yarn bundlesize",
+    "bundlesize": "bundlesize",
+    "link:all": "yarn link",
+    "unlink:all": "yarn unlink"
+  },
+  "devDependencies": {
+    "@reinventt/build-typescript": "0.2.1",
+    "@reinventt/build-webpack": "0.2.1",
+    "@reinventt/pubsub-web-specs": "0.0.1"
+  },
+  "dependencies": {
+    "nanoid": "3.1.30"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

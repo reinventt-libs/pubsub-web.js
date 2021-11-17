@@ -1,0 +1,10 @@
+{
+  "extends": "@reinventt/build-typescript/tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "module": "umd"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/__tests__/*", "src/**/*.test.ts"]
+}

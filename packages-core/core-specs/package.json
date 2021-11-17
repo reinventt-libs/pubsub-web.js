@@ -1,0 +1,27 @@
+{
+  "name": "@reinventt/pubsub-web-specs",
+  "version": "0.0.1",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "repository": "git@github.com:reinventt-libs/pubsub-web.git",
+  "author": "Nischith BM <nischithbm@gmail.com>",
+  "scripts": {
+    "clean": "rm -r dist/",
+    "build": "yarn build:specs",
+    "build:specs": "yarn clean; yarn build:types",
+    "build:types": "tsc --emitDeclarationOnly",
+    "link:all": "yarn link",
+    "unlink:all": "yarn unlink"
+  },
+  "devDependencies": {
+    "@reinventt/build-typescript": "0.2.1"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

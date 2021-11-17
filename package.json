@@ -1,0 +1,37 @@
+{
+  "name": "@reinventt/pubsub-web-mono-repo",
+  "version": "0.0.1",
+  "private": true,
+  "repository": "git@github.com:reinventt-libs/pubsub-web.git",
+  "author": "Nischith BM <nischithbm@gmail.com>",
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages-core/*"
+    ]
+  },
+  "scripts": {
+    "build": "yarn build:packages-core",
+    "build:packages-core": "yarn build:specs && yarn build:core",
+    "build:specs": "lerna run build:specs",
+    "build:core": "lerna run build:core",
+    "publish:all": "lerna publish",
+    "publish:all:patch": "yarn publish:all --cd-version patch --yes",
+    "pushTags": "git push --tags",
+    "link:all": "lerna run link:all",
+    "unlink:all": "lerna run unlink:all",
+    "link:external": "yarn link:build-typescript && yarn link:build-webpack",
+    "link:build-typescript": "yarn link @reinventt/build-typescript",
+    "link:build-webpack": "yarn link @reinventt/build-webpack"
+  },
+  "devDependencies": {
+    "lerna": "4.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

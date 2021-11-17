@@ -16,7 +16,6 @@
   "devDependencies": {
     "@reinventt/build-typescript": "0.2.1"
   },
-  "dependencies": {},
   "engines": {
     "node": ">=14.0.0"
   },
